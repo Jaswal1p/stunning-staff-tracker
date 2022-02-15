@@ -51,16 +51,16 @@ const db = mysql.createConnection(
 
 // Create an employee
 
-const sql = `INSERT INTO employee (id, first_name, last_name, role_id, manager_id) 
-              VALUES (?,?,?,?,?)`;
-const params = [1, 'Jim', 'Daly', 1, null];
+// const sql = `INSERT INTO employee (id, first_name, last_name, role_id, manager_id) 
+//               VALUES (?,?,?,?,?)`;
+// const params = [1, 'Jim', 'Daly', 1, null];
 
-db.query(sql, params, (err, result) => {
-  if (err) {
-    console.log(err);
-  }
-  console.log(result);
-});
+// db.query(sql, params, (err, result) => {
+//   if (err) {
+//     console.log(err);
+//   }
+//   console.log(result);
+// });
 
 
 // db.query(`SELECT * FROM role`, (err, rows) => {
