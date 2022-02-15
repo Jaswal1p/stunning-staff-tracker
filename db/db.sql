@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS staffing;
+CREATE DATABASE staffing;
+USE staffing;
