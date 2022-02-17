@@ -25,6 +25,7 @@ const promptUser = () => {
             'Add a department',
             'Add a role',
             'Add an employee',
+            'delete an employee',
             'Update role of an employee',
             'View all employee by department',
             'View all employee by manager',
@@ -53,7 +54,10 @@ const promptUser = () => {
                 break;
             case 'Add an employee':
                 addEmp();
-                break;    
+                break;
+            case 'Delete an employee':
+                deleteEmp();
+                break;
             case 'Update role of an employee':
                 upEmp();
                 break;
