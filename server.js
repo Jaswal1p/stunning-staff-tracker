@@ -77,57 +77,57 @@ const promptUser = () => {
 
 
 // Connect to database
-const db = mysql.createConnection(
-    {
-      host: 'localhost',
-      // Your MySQL username,
-      user: 'root',
-      // Your MySQL password
-      password: 'nahcYj-6fegwo-pifbyt',
-      database: 'staffing'
-    },
-    console.log('Connected to the staffing database.')
-  );
+// const db = mysql.createConnection(
+//     {
+//       host: 'localhost',
+//       // Your MySQL username,
+//       user: 'root',
+//       // Your MySQL password
+//       password: 'nahcYj-6fegwo-pifbyt',
+//       database: 'staffing'
+//     },
+//     console.log('Connected to the staffing database.')
+//   );
 
 
 // View department
-const viewAllDep = () => {
-    connection.query(
-        `SELECT * FROM department`,
-        function (err, results, fields) {
-            if (err) {
-                console.log(err.message);
-                return;
-            }
-            console.table(results);
-            promptUser();
-        }
-    )
-}
+// const viewAllDep = () => {
+//     connection.query(
+//         `SELECT * FROM department`,
+//         function (err, results, fields) {
+//             if (err) {
+//                 console.log(err.message);
+//                 return;
+//             }
+//             console.table(results);
+//             promptUser();
+//         }
+//     )
+// }
 
-const addDep = () => {
-    inquirer
-        .prompt({
-            type: 'text',
-            name: 'dep_name',
-            message: 'Please enter the name of new department to be added: '
-        })
-        .then((data) => {
-            connection.query(
-                `INSERT INTO department (name)
-                VALUES(?)`,
-                [data.dep_name],
-                function (err, results, fields) {
-                    if (err) {
-                        console.log(err.message);
-                        return;
-                    }
-                    console.log('New department added!');
-                    promptUser();
-                }
-            )
-        })
-}
+// const addDep = () => {
+//     inquirer
+//         .prompt({
+//             type: 'text',
+//             name: 'dep_name',
+//             message: 'Please enter the name of new department to be added: '
+//         })
+//         .then((data) => {
+//             connection.query(
+//                 `INSERT INTO department (name)
+//                 VALUES(?)`,
+//                 [data.dep_name],
+//                 function (err, results, fields) {
+//                     if (err) {
+//                         console.log(err.message);
+//                         return;
+//                     }
+//                     console.log('New department added!');
+//                     promptUser();
+//                 }
+//             )
+//         })
+// }
 
 
 //   View all employee
