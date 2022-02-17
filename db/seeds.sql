@@ -20,17 +20,22 @@ VALUES
   ('Sen Tech', 500, 3),
   ('Jun Tech', 400, 4);
 
-INSERT INTO employee (first_name, last_name, role_id, manager_id)
+INSERT INTO employee (first_name, last_name, role_id, manager_id, is_manager)
 VALUES
-  ('Jim', 'Daly', 1, NULL),
-  ('Mike', 'Jordan', 3, 1),
-  ('Virat', 'Koli', 4, 1),
-  ('Steve', 'Smith', 2, 1),
-  ('Ally', 'Milano', 6, 4),
-  ('Sam', 'Clinton', 5, 1),
-  ('Tamika', 'James', 7, 3),
-  ('Jemi', 'Rodriguez', 8, 2),
-  ('Jef', 'Bezo', 9, 1),
-  ('John', 'Dimo', 10, 2),
-  ('Kaye', 'East', 11, 3),
-  ('Nila', 'Kapur', 12, 4);
+  ('Jim', 'Daly', 1, NULL, true),
+  ('Mike', 'Jordan', 3, 1, true),
+  ('Virat', 'Koli', 4, 1, true),
+  (('Steve', 'Smith'), 2, 1, true),
+  ('Ally', 'Milano', 6, 4, false),
+  ('Sam', 'Clinton', 5, 1, false),
+  ('Tamika', 'James', 7, 3, false),
+  ('Jemi', 'Rodriguez', 8, 2, false),
+  ('Jef', 'Bezo', 9, 1, false),
+  ('John', 'Dimo', 10, 2, false),
+  ('Kaye', 'East', 11, 3, false),
+  ('Nila', 'Kapur', 12, 4, false);
+
+INSERT INTO manager (first_name, last_name)
+SELECT first_name, last_name
+FROM employee
+WHERE is_manager = 1

@@ -1,7 +1,6 @@
 const inquirer = require('inquirer');
 const express = require('express');
-const mysql = require('mysql2');
-const Connection = require('mysql2/typings/mysql/lib/Connection');
+
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -149,35 +148,35 @@ const promptUser = () => {
 
 
 
-const viewAllEmp = () => {
+// const viewAllEmp = () => {
 
     // connect to the database staffing
-    Connection.query(
-        //work through all tables to view all employees
-        `SELECT employee.id, employee.first_name, employee.last_name, role.title AS role, role.salary AS salary, manager.first_name AS manager, department.name AS department
-        FROM employee
-        LEFT JOIN role
-        ON employee.role_id = role.id
-        LEFT JOIN department
-        ON role.department_id = department.id
-        LEFT JOIN manager
-        ON employee.manager_id = manager.id`,
+//     connection.query(
+//         //work through all tables to view all employees
+//         `SELECT employee.id, employee.first_name, employee.last_name, role.title AS role, role.salary AS salary, manager.first_name AS manager, department.name AS department
+//         FROM employee
+//         LEFT JOIN role
+//         ON employee.role_id = role.id
+//         LEFT JOIN department
+//         ON role.department_id = department.id
+//         LEFT JOIN manager
+//         ON employee.manager_id = manager.id`,
 
-        // Call back function here
-        function (err, results, fields) {
-            if (err) {
-                console.log(err.message);
-                return;
-            }
+//         // Call back function here
+//         function (err, results, fields) {
+//             if (err) {
+//                 console.log(err.message);
+//                 return;
+//             }
 
-        // show result table 
-        console.table(results);
+//         // show result table 
+//         console.table(results);
         
-        // Re-prompt user for other choices
-        promptUser();
-        }
-    );
-};
+//         // Re-prompt user for other choices
+//         promptUser();
+//         }
+//     );
+// };
 
 
 
@@ -244,4 +243,8 @@ app.listen(PORT, () => {
 
 // Section for exporting this module comprised of many individual methods
 module.exports = { promptUser }
+const { viewAllEmp } = require('./lib/employee-methods');
+const { viewAllDep, addDep } = require('./lib/department-methods');
 
+
+promptUser()
