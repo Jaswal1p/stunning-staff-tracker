@@ -1,3 +1,4 @@
+const inquirer = require('inquirer');
 const express = require('express');
 const mysql = require('mysql2');
 const Connection = require('mysql2/typings/mysql/lib/Connection');
@@ -8,6 +9,72 @@ const app = express();
 // Express middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+
+const promptUser = () => {
+    inquirer 
+
+    // This is a section of initial prompts as required by assignment
+    .prompt({
+        type: 'list',
+        name: 'all choices',
+        message: 'Application can help you with following choice: Please pick one',
+        choices: [
+            'View all department',
+            'View all role',
+            'View all employee',
+            'Add a department',
+            'Add a role',
+            'Add an employee',
+            'Update role of an employee',
+            'View all employee by department',
+            'View all employee by manager',
+            'View total budget',
+            'Finished'
+        ]
+    })
+
+    // use the above choices and create switch statements to decide what to do based upon choice clicked
+    .then((data) => {
+        switch (data['all choices']) {
+            case 'View all department':
+                viewAllDep();
+                break;
+            case 'View all role':
+                viewAllRole();
+                break;    
+            case 'View all employee':
+                viewAllEmp();
+                break;
+            case 'Add a department':
+                addDep();
+                break;
+            case 'Add a role':
+                addRole();
+                break;
+            case 'Add an employee':
+                addEmp();
+                break;    
+            case 'Update role of an employee':
+                upEmp();
+                break;
+            case 'View all employee by department':
+                viewEmpByDep();
+                break;
+            case 'View all employee by manager':
+                viewEmpByMang();
+                break;
+            case 'View total budget of a department':
+                totalBudgetByDept();
+                break;
+            case 'Finished':
+                break;     
+                        
+        }
+    })
+}
+
+
 
 // Connect to database
 const db = mysql.createConnection(
@@ -132,3 +199,7 @@ app.use((req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
+
+// Section for exporting this module comprised of many individual methods
+module.exports = { promptUser }
+
