@@ -1,5 +1,6 @@
 const express = require('express');
 const mysql = require('mysql2');
+const Connection = require('mysql2/typings/mysql/lib/Connection');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -22,21 +23,35 @@ const db = mysql.createConnection(
   );
 
 
-//   API endpoints to Get all employees
-app.get('/api/employee', (req, res) => {
-    const sql = `SELECT * FROM employee`;
+//   View all employee
+const viewAllEmp = () => {
 
-    db.query(sql, (err, rows) => {
-        if (err) {
-          res.status(500).json({ error: err.message });
-          return;
+    // connect to the database staffing
+    Connection.query(
+        //work through all tables to view all employees
+        `SELECT employee.id, employee.first_name, employee.last_name, role.title AS role, role.salary AS salary, manager.first_name AS manager, department.name AS department
+        FROM employee
+        LEFT JOIN role
+        ON employee.role_id = role.id
+        LEFT JOIN department
+        ON role.department_id = department.id
+        LEFT JOIN manager
+        ON employee.manager_id = manager.id`,
+
+        // Call back function here
+        function (err, results, fields) {
+            if (err) {
+                console.log(err.message);
+                return;
+            }
+
+        // show result table 
+        console.table(results);
+        
+        // Re-prompt user for other choices
         }
-        res.json({
-            message: 'success',
-            data: rows
-        });
-    });    
-})
+    );
+};
 
 
 
