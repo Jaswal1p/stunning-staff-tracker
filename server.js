@@ -22,20 +22,40 @@ const db = mysql.createConnection(
   );
 
 
-//   db.query(`SELECT * FROM employee`, (err, rows) => {
-//     console.log(rows);
-//   });
+//   API endpoints to Get all employees
+app.get('/api/employee', (req, res) => {
+    const sql = `SELECT * FROM employee`;
+
+    db.query(sql, (err, rows) => {
+        if (err) {
+          res.status(500).json({ error: err.message });
+          return;
+        }
+        res.json({
+            message: 'success',
+            data: rows
+        });
+    });    
+})
 
 
 
-// GET a single employee
-
-// db.query(`SELECT * FROM employee WHERE id = 1`, (err, row) => {
-//     if (err) {
-//       console.log(err);
-//     }
-//     console.log(row);
-//   });
+// Get a single employee
+app.get('/api/employee/:id', (req, res) => {
+    const sql = `SELECT * FROM employee WHERE id = ?`;
+    const params = [req.params.id];
+  
+    db.query(sql, params, (err, row) => {
+      if (err) {
+        res.status(400).json({ error: err.message });
+        return;
+      }
+      res.json({
+        message: 'success',
+        data: row
+      });
+    });
+  });
 
 
   
