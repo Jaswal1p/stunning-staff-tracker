@@ -24,6 +24,22 @@ const db = mysql.createConnection(
 
 
 //   View all employee
+// app.get('/api/employee', (req, res) => {
+//     const sql = `SELECT * FROM employee`; 
+  
+      
+//     db.query(sql, (err, row) => {
+//       if (err) {
+//         res.status(500).json({ error: err.message });
+//         return;
+//       }
+//       res.json({
+//         message: 'success',
+//         data: row
+//       });
+//     });
+//   });
+
 const viewAllEmp = () => {
 
     // connect to the database staffing
@@ -49,6 +65,7 @@ const viewAllEmp = () => {
         console.table(results);
         
         // Re-prompt user for other choices
+        promptUser();
         }
     );
 };
@@ -56,21 +73,21 @@ const viewAllEmp = () => {
 
 
 // Get a single employee
-app.get('/api/employee/:id', (req, res) => {
-    const sql = `SELECT * FROM employee WHERE id = ?`;
-    const params = [req.params.id];
+// app.get('/api/employee/:id', (req, res) => {
+//     const sql = `SELECT * FROM employee WHERE id = ?`;
+//     const params = [req.params.id];
   
-    db.query(sql, params, (err, row) => {
-      if (err) {
-        res.status(400).json({ error: err.message });
-        return;
-      }
-      res.json({
-        message: 'success',
-        data: row
-      });
-    });
-  });
+//     db.query(sql, params, (err, row) => {
+//       if (err) {
+//         res.status(400).json({ error: err.message });
+//         return;
+//       }
+//       res.json({
+//         message: 'success',
+//         data: row
+//       });
+//     });
+//   });
 
 
   
