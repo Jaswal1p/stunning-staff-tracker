@@ -55,7 +55,7 @@ const promptUser = () => {
             case 'Add an employee':
                 addEmp();
                 break;
-            case 'Delete an employee':
+            case 'delete an employee':
                 deleteEmp();
                 break;
             case 'Update role of an employee':
@@ -247,7 +247,7 @@ app.listen(PORT, () => {
 
 // Section for exporting this module comprised of many individual methods
 module.exports = { promptUser }
-const { viewAllEmp } = require('./lib/employee-methods');
+const { viewAllEmp, deleteEmp } = require('./lib/employee-methods');
 const { viewAllDep, addDep } = require('./lib/department-methods');
 
 
