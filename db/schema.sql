@@ -34,5 +34,6 @@ CREATE TABLE employee (
   role_id INTEGER,
   CONSTRAINT fk_party2 FOREIGN KEY (role_id) REFERENCES role(id) ON DELETE SET NULL,
   manager_id INTEGER,
-  CONSTRAINT fk_party3 FOREIGN KEY (manager_id) REFERENCES employee(id) ON DELETE SET NULL
+  CONSTRAINT fk_party3 FOREIGN KEY (manager_id) REFERENCES employee(id) ON DELETE SET NULL,
+  is_manager BOOLEAN NOT NULL
 );
