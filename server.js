@@ -17,7 +17,7 @@ const promptUser = () => {
     .prompt({
         type: 'list',
         name: 'all choices',
-        message: 'Application can help you with following choice: Please pick one',
+        message: 'Application can help you with following choices. Please pick one',
         choices: [
             'View all department',
             'View all role',
