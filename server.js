@@ -62,7 +62,7 @@ const promptUser = () => {
                 upEmp();
                 break;
             case 'View all employee by department':
-                viewEmpByDep();
+                viewEmpByDept();
                 break;
             case 'View all employee by manager':
                 viewEmpByMang();
@@ -247,7 +247,7 @@ app.listen(PORT, () => {
 
 // Section for exporting this module comprised of many individual methods
 module.exports = { promptUser }
-const { viewAllEmp, deleteEmp } = require('./lib/employee-methods');
+const { viewAllEmp, viewEmpByDept, viewEmpByMang, deleteEmp } = require('./lib/employee-methods');
 const { viewAllDep, addDep } = require('./lib/department-methods');
 
 
