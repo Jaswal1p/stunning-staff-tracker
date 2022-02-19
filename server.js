@@ -11,13 +11,18 @@ app.use(express.json());
 
 
 const promptUser = () => {
-    inquirer 
+    console.log(`
+    ================
+    Employee Tracker
+    ================
+    `);
 
+    inquirer 
     // This is a section of initial prompts as required by assignment
     .prompt({
         type: 'list',
         name: 'all choices',
-        message: 'Application can help you with following choices. Please pick one',
+        message: 'This Command-line Application can help you with following choices. Please pick one',
         choices: [
             'View all department',
             'View all role',
@@ -25,8 +30,8 @@ const promptUser = () => {
             'Add a department',
             'Add a role',
             'Add an employee',
+            'Update an employee role',
             'delete an employee',
-            'Update role of an employee',
             'View all employee by department',
             'View all employee by manager',
             'View total budget',
