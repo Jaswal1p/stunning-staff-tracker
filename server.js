@@ -247,7 +247,7 @@ app.listen(PORT, () => {
 
 // Section for exporting this module comprised of many individual methods
 module.exports = { promptUser }
-const { viewAllEmp, viewEmpByDept, viewEmpByMang, deleteEmp } = require('./lib/employee-methods');
+const { viewAllEmp, viewEmpByDept, viewEmpByMang, addEmp, deleteEmp } = require('./lib/employee-methods');
 const { viewAllDep, addDep } = require('./lib/department-methods');
 
 
