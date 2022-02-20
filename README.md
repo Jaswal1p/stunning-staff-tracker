@@ -29,15 +29,15 @@
 
 Future directions for this assignment:
  1. Would like to work on adding 4rth bonus point of budget of a particular department.
- 2. Would like to some day use async & await in methods.
+ 2. Would like to some day use async & await functions in methods.
  3. Would love to someday rebuild this assignment with sequalize, which I am learning right now!
 
 Challenges:
  1. Not enough time! I need 30 hrs in a day to give uniterrupted 6hrs/day to code (Career already takes-up 9-10 hrs a day & sometimes weekend call too), to do justice with my learning plus proper concept understanding !!!
- 2. BCS is of no help lately. On the contrary some of them are rude, sometimes unwilling to talk on zoom and just throw up arrticles & videos, which I have already referred to. They constantly pass their work to their next colleague.
+ 2. BCS is of no help lately. On the contrary some of them are rude, sometimes unwilling to talk on zoom and just throw up articles & videos, which I have already referred to. They constantly pass their work to their next colleague.
  3. Availabilty of TAs is unpredictable. They are all great and extremely helpful. Its just that my time doesn't match with theirs. Office hours are great. Helped me out a great deal this and last saturday. 
 
- # Screenshot
+ # Screenshots
  ![Screenshot_making _tables](https://user-images.githubusercontent.com/92233527/154832849-96882df5-6e0b-4953-93a2-e46591d9521f.png)
 
  ![ScreenshotAllEmployeeAPI](https://user-images.githubusercontent.com/92233527/154832866-90d5c5e7-2f1e-4f4a-a4e4-b0aa34823c85.png)
